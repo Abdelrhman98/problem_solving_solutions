@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//https://codeforces.com/problemset/problem/1618/A
 int main(){
     //freopen("in.txt","r",stdin);
     int t,i=0;
