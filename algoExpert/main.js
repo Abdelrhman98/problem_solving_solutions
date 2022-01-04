@@ -16,7 +16,23 @@ var lengthOfLongestSubstring = function(s) {
     })
     return mx;
 }
-console.log(lengthOfLongestSubstring("dvdf"))
+
+
+var searchInsert = function(nums, target) {
+    let idx=0;
+    for( const x in nums){
+        if(nums[x]>target){
+            idx=(idx>0)?idx--:idx;
+            break
+        }else if(nums[x]==target){
+            break;
+        }
+       // console.log(nums[x])
+        idx++
+    }
+    return idx;
+}
+console.log(searchInsert([1,3,5,6],2))
 
 // 1 1 3  5   7   22
 // 1 2 5 10  17   

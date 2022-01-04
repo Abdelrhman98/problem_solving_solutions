@@ -16,3 +16,20 @@ var groupAnagrams = function(strs) {
     }
     return result
 };
+
+
+//https://leetcode.com/problems/search-insert-position/submissions/
+var searchInsert = function(nums, target) {
+    let idx=0;
+    for( const x in nums){
+        if(nums[x]>target){
+            idx=(idx>0)?idx--:idx;
+            break
+        }else if(nums[x]==target){
+            break;
+        }
+       // console.log(nums[x])
+        idx++
+    }
+    return idx;
+}
