@@ -1,22 +1,22 @@
+//https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 
-//https://leetcode.com/problems/group-anagrams/submissions/
-var groupAnagrams = function(strs) {
-    var map ={},
-    result  = []
-    strs.forEach(ele=>{
-        let temp = ele.split("").sort().join("")
-        if(map[temp]){
-            map[temp].push(ele)
+
+var lengthOfLongestSubstring = function(s) {
+    var mx = 0, tempArr = s.split(''), subStr=''
+    tempArr.forEach(char=>{
+        if(subStr.includes(char)){
+            subStr=char
+
         }else{
-            map[temp] =[ele]
+            subStr+=char
+            if(mx<subStr.length)
+                mx=subStr.length
+            
         }
     })
-    for(const key in map){
-        result.push(map[key])
-    }
-    return result
-};
-console.log(groupAnagrams( ["eat","tea","tan","ate","nat","bat"]))
+    return mx;
+}
+console.log(lengthOfLongestSubstring("dvdf"))
 
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
