@@ -33,3 +33,19 @@ var searchInsert = function(nums, target) {
     }
     return idx;
 }
+
+
+//https://leetcode.com/problems/reverse-integer/submissions/
+var reverse = function(x) {
+    
+    let sx = x.toString().split(''),
+    neg = (sx[0]=='-'),
+    res=0
+    for(let i=sx.length-1 ;i>=neg ;i-- ){
+        res*=10
+        res+=parseInt(sx[i])
+    }
+    res*=(neg)?-1:1
+    return (res < Math.pow(2,31) && res>= Math.pow(-2,31))?res:0
+
+}

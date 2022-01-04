@@ -18,21 +18,22 @@ var lengthOfLongestSubstring = function(s) {
 }
 //console.log(searchInsert([1,3,5,6],2))
 
-
-//https://www.algoexpert.io/questions/First%20Duplicate%20Value
-function firstDuplicateValue(array) {
-    var freq={}
-    for(let x of array){
-        //console.log(x)
-        if(freq[x]>=1){
-            return x
-        }else{
-            freq[x]=1
+//https://leetcode.com/problems/reverse-integer/submissions/
+var reverse = function(x) {
+    
+        let sx = x.toString().split(''),
+        neg = (sx[0]=='-'),
+        res=0
+        for(let i=sx.length-1 ;i>=neg ;i-- ){
+            res*=10
+            res+=parseInt(sx[i])
         }
-    }
-    return -1;
+        res*=(neg)?-1:1
+        return (res < Math.pow(2,31) && res>= Math.pow(-2,31))?res:0
+    
 }
 
-console.log(firstDuplicateValue([1, 1, 2, 3, 3, 2, 2]))
+
+console.log(reverse(1534236469))
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
