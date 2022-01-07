@@ -33,7 +33,15 @@ var reverse = function(x) {
     
 }
 
-
-console.log(reverse(1534236469))
+function getNthFib(n) {
+    var fib = 0, fibo=[0,1];
+    
+    for(let i=2;i<n;i++){
+        fibo.push(fibo[i-2]+fibo[i-1])
+    }
+    return fibo[n-1]
+}
+  
+console.log(getNthFib(6))
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
