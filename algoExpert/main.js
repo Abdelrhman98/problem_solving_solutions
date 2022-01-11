@@ -133,4 +133,8 @@ function runLengthEncoding(string) {
 
 console.log(runLengthEncoding( "AAAAAAAAAAAAABBCCCCDD"))
 // 1 1 3  5   7   22a
+ 
+  
+console.log(getNthFib(6))
+// 1 1 3  5   7   22
 // 1 2 5 10  17   
