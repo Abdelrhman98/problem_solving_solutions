@@ -131,10 +131,73 @@ function runLengthEncoding(string) {
     return genString.substring(1,last2)
 }
 
-console.log(runLengthEncoding( "AAAAAAAAAAAAABBCCCCDD"))
+//console.log(runLengthEncoding( "AAAAAAAAAAAAABBCCCCDD"))
 // 1 1 3  5   7   22a
  
-  
-console.log(getNthFib(6))
+//https://www.algoexpert.io/questions/Palindrome%20Check
+function isPalindrome(string) {
+    // Write your code here.   
+    
+    var len = string.length
+    
+    var last = len-1
+    string = string.split('')
+    for(let i =0;i<len/2;i++){
+        if(string[Math.abs(last-i)] != string[i])
+        return false
+    }
+    return true
+  }
+
+
+function GenNewCharWithNumber(number, char){
+    var genString="";
+    genString+= ("9"+char).repeat( (number/9).toFixed(0) ) +
+    (number-( (number/9).toFixed(0) * 9 ))+char
+    //console.log(genString)
+    return genString
+}
+
+function runLengthEncoding(string) {
+    var allChars = string.split(''),
+    genString="",
+    activeChar="",
+    cnt=0,
+    last=allChars.length
+    
+    
+    for(let i=0;i<last;i++){
+        if(i==0){
+            activeChar = allChars[i]
+            cnt=1;
+            continue;
+        }
+        else if(i==last-1){
+            if(activeChar == allChars[i]){
+                cnt+=1;
+                genString+=GenNewCharWithNumber(cnt,activeChar)
+            }else{
+                genString+=GenNewCharWithNumber(cnt,activeChar)
+                genString+=GenNewCharWithNumber(1,allChars[i])
+            }
+        }else{
+            if(activeChar==allChars[i]){
+                cnt++
+            }else{
+                genString+=GenNewCharWithNumber(cnt,activeChar)
+                activeChar=allChars[i]
+                cnt=0;
+            }
+        }
+    }
+    return genString
+}
+
+//9A4A2B4C2D
+
+
+  console.log(runLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
+
+
