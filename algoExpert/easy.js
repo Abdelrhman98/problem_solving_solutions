@@ -63,4 +63,37 @@ function bubbleSort(array) {
     }
     return array
 }
-console.log(bubbleSort([8, 5, 2, 9, 5, 6, 3]))
+//https://www.algoexpert.io/questions/Tandem%20Bicycle
+function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
+    redShirtSpeeds.sort((a,b)=>{return a-b})
+    blueShirtSpeeds.sort((a,b)=>{return (fastest)?b-a:a-b})
+    var total = 0;
+
+    // console.log(redShirtSpeeds, blueShirtSpeeds)
+    
+    redShirtSpeeds.forEach((ele,i)=>{
+        total+=Math.max(ele,blueShirtSpeeds[i])
+    })
+
+    return total;
+}
+
+//https://www.algoexpert.io/questions/Tournament%20Winner
+function tournamentWinner(competitions, results) {
+    var teams = {},
+    winnerTeam = "",
+    maxPoints = 0
+    competitions.forEach((match, i)=>{
+        if(!teams[match[(results[i]+1)%2]])
+            teams[match[(results[i]+1)%2]]=0
+        
+        teams[match[(results[i]+1)%2]]+=3
+        if(teams[match[(results[i]+1)%2]] > maxPoints){
+            maxPoints = teams[match[(results[i]+1)%2]]
+            winnerTeam = match[(results[i]+1)%2]
+        }
+    })
+    // console.log(winnerTeam)
+    return winnerTeam;
+}
+

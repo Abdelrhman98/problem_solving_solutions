@@ -192,11 +192,32 @@ function runLengthEncoding(string) {
     }
     return genString
 }
+//https://www.algoexpert.io/questions/Tournament%20Winner
+function tournamentWinner(competitions, results) {
+    var teams = {},
+    winnerTeam = "",
+    maxPoints = 0
+    competitions.forEach((match, i)=>{
+        if(!teams[match[(results[i]+1)%2]])
+            teams[match[(results[i]+1)%2]]=0
+        
+        teams[match[(results[i]+1)%2]]+=3
+        if(teams[match[(results[i]+1)%2]] > maxPoints){
+            maxPoints = teams[match[(results[i]+1)%2]]
+            winnerTeam = match[(results[i]+1)%2]
+        }
+    })
+    // console.log(winnerTeam)
+    return winnerTeam;
+}
+console.log(tournamentWinner([
+  ["HTML", "C#"],
+  ["C#", "Python"],
+  ["Python", "HTML"]
+],
+[0, 0, 1]))
 
-//9A4A2B4C2D
-
-
-  console.log(runLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
+//   console.log(runLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
 
