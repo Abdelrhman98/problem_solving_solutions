@@ -97,3 +97,13 @@ function tournamentWinner(competitions, results) {
     return winnerTeam;
 }
 
+
+
+//https://www.algoexpert.io/questions/Move%20Element%20To%20End
+function moveElementToEnd(array, toMove) {
+    let toMoveCnt = 0,
+    arrCopy = [...array]
+    array = array.filter(ele=> ele!=toMove)
+    array.push(...Array(arrCopy.length - array.length).fill(toMove))
+    return array
+}

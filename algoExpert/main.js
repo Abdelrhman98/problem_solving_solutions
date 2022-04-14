@@ -210,15 +210,32 @@ function tournamentWinner(competitions, results) {
     // console.log(winnerTeam)
     return winnerTeam;
 }
-console.log(tournamentWinner([
-  ["HTML", "C#"],
-  ["C#", "Python"],
-  ["Python", "HTML"]
-],
-[0, 0, 1]))
+
+
+
+
+
+
+
+
+//https://www.algoexpert.io/questions/Move%20Element%20To%20End
+function moveElementToEnd(array, toMove) {
+    let toMoveCnt = 0,
+    arrCopy = [...array]
+    array = array.filter(ele=> ele!=toMove)
+    array.push(...Array(arrCopy.length - array.length).fill(toMove))
+    return array
+}
+
+
+console.log(moveElementToEnd([2, 1, 2, 2, 2, 3, 4, 2],2))
 
 //   console.log(runLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
 // 1 1 3  5   7   22
 // 1 2 5 10  17   
+
+
+
+
 
 
