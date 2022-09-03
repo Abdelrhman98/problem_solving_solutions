@@ -119,3 +119,10 @@ function moveElementToEnd(array, toMove) {
 
 
 
+//https://www.algoexpert.io/questions/product-sum
+function productSum(array, lvl=1) {
+	let sum = 0;
+  for(let i of array)
+    sum+=(typeof i =='object')?productSum(i, lvl+1):i;
+  return sum*lvl;
+}
