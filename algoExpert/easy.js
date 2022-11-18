@@ -126,3 +126,32 @@ function productSum(array, lvl=1) {
     sum+=(typeof i =='object')?productSum(i, lvl+1):i;
   return sum*lvl;
 }
+
+///
+let x = [2, 5, -3, -4, 6, 7, 2]
+function nextGreaterElement(array) {
+  let res = [];
+  array.forEach((ele, idx)=>{
+    let flag = false;
+    for(let i = idx+1;i<array.length;i++){
+  		if(array[i]>ele){
+        res.push(array[i])
+        flag = true;
+        break;
+      }
+    }
+    if(!flag){
+       for(let i = 0 ;i<idx+1 ;i++){
+  		if(array[i]>ele){
+        res.push(array[i])
+        flag = true;
+        break;
+      }
+    	}
+    }
+    if(!flag){
+    	res.push(-1)  
+    }
+  })
+  return res;
+}
